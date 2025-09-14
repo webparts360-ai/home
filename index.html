@@ -4,7 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webparts360 - Microsoft 365 Business Process Platform</title>
+    <meta name="description" content="Webparts360 delivers business‑critical workflows, AI, mobile field apps, and external data capture — all inside Microsoft Teams and SharePoint." />
+    <link rel="icon" href="images/W360.svg" type="image/svg+xml" sizes="any" />
+    <link rel="icon" href="favicon.png" type="image/png" />    
     <style>
+    :root{
+      /* Palette extracted from W360Logo.svg */
+      --blue:#1c8ccc;   /* primary */
+      --green:#74ba45;  /* accent */
+      --orange:#fba729; /* highlight */
+      --ink:#231c23;    /* dark text */
+      --sand:#e3dfc7;   /* soft background */
+
+      /* Theme tokens */
+      --bg:#ffffff;
+      --bg-soft:#f8fbff; /* very light backdrop */
+      --text:var(--ink);
+      --muted:#4b5563;
+      --border:rgba(2,6,23,.12);
+      --card:#ffffff;
+      --radius:16px;
+      --maxw:1200px;
+      --shadow:0 12px 30px rgba(2,6,23,.08);
+      --shadow-sm:0 8px 20px rgba(2,6,23,.06);
+    }
+        
         * {
             margin: 0;
             padding: 0;
@@ -43,6 +67,11 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
+            position: fixed;   /* keep it pinned in place even when scrolling */
+            top: 10px;         /* distance from top */
+            left: 10px;        /* distance from left */
+            width: 80px;       /* control size */
+            height: auto;            
         }
 
         nav ul {
@@ -366,10 +395,12 @@
 </head>
 <body>
     <!-- Header -->
+  
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Webparts360</div>
+                <!-- <div class="logo">Webparts360</div> -->
+                <img src="images/w360.svg" alt="Logo" class="logo">                  
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
