@@ -3,801 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webparts360 - Microsoft 365 Business Process Platform</title>
-    <meta name="description" content="Webparts360 delivers business‑critical workflows, AI, mobile field apps, and external data capture — all inside Microsoft Teams and SharePoint." />
-    <link rel="icon" href="images/W360.svg" type="image/svg+xml" sizes="any" />
-    <link rel="icon" href="favicon.png" type="image/png" />    
+    <title>Webparts360 | Microsoft 365 Transformation Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-    :root{
-      /* Palette extracted from W360Logo.svg */
-      --blue:#1c8ccc;   /* primary */
-      --green:#74ba45;  /* accent */
-      --orange:#fba729; /* highlight */
-      --ink:#231c23;    /* dark text */
-      --sand:#e3dfc7;   /* soft background */
-
-      /* Theme tokens */
-      --bg:#ffffff;
-      --bg-soft:#f8fbff; /* very light backdrop */
-      --text:var(--ink);
-      --muted:#4b5563;
-      --border:rgba(2,6,23,.12);
-      --card:#ffffff;
-      --radius:16px;
-      --maxw:1200px;
-      --shadow:0 12px 30px rgba(2,6,23,.08);
-      --shadow-sm:0 8px 20px rgba(2,6,23,.06);
-    }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: white;
-            color: #0078d4;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            position: fixed;   /* keep it pinned in place even when scrolling */
-            top: 10px;         /* distance from top */
-            left: 10px;        /* distance from left */
-            width: 80px;       /* control size */
-            height: auto;            
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: 1c8ccc; <!--white; -->
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #0078d4, #005a9e);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .hero h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: #fff;
-            color: #0078d4;
-            font-weight: 600;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Video Placeholder */
-        .video-placeholder {
-            background: #f5f5f5;
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin: 2rem 0;
-            color: #666;
-        }
-
-        .video-placeholder i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* Sections */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #0078d4;
-        }
-
-        .section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .section p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        /* Grid Layouts */
-        .grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Success Story */
-        .success-story {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            padding: 3rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .success-story h3 {
-            color: #0078d4;
-            margin-bottom: 1rem;
-        }
-
-        .success-story .quote {
-            font-style: italic;
-            font-size: 1.2rem;
-            margin: 1rem 0;
-            color: #333;
-        }
-
-        /* Questions Section */
-        .questions {
-            background: url('images/M365.jpg') center center/contain no-repeat;            
-            color: #74ba45;
-            padding: 3rem;
-            border-left: 5px solid #ff9500;
-            min-height: 800px;
-            margin: 2rem 0;
-        }
-
-        .questions ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .questions li {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .questions li:before {
-            content: "?";
-            position: absolute;
-            left: 0;
-            color: #0078d4;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        /* Feature Highlights */
-        .feature-highlight {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .feature-highlight img {
-            width: 60px;
-            height: 60px;
-            background: #0078d4;
-            border-radius: 50%;
-        }
-
-        .feature-highlight .content {
-            flex: 1;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: #0078d4;
-            color: white;
-            text-align: center;
-        }
-
-        .contact h2 {
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .contact-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.4rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .feature-highlight {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .section {
-                padding: 2rem 0;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-
-        /* Animation for cards */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        .animate-on-scroll {
-            animation: fadeInUp 0.6s ease-out;
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .accent-red {
+            color: #e11d48;
+        }
+        .bg-accent-red {
+            background-color: #e11d48;
+        }
+        .placeholder-box {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #64748b;
+            min-height: 300px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-  
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <!-- <div class="logo">Webparts360</div> -->
-                <img src="images/w360.svg" alt="Logo" class="logo">                  
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#success">Success</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-morphism border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-accent-red rounded flex items-center justify-center text-white font-bold">W</div>
+                    <span class="text-xl font-bold tracking-tight text-slate-800">Webparts<span class="accent-red">360</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#problem" class="text-sm font-medium hover:text-rose-600 transition">The Problem</a>
+                    <a href="#solution" class="text-sm font-medium hover:text-rose-600 transition">The Bridge</a>
+                    <a href="#industries" class="text-sm font-medium hover:text-rose-600 transition">Industries</a>
+                    <a href="#audit" class="bg-accent-red text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-rose-700 transition">Free Asset Audit</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 text-slate-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
             </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-20 lg:py-32 px-4 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <span class="inline-block px-4 py-1 rounded-full bg-rose-500/20 text-rose-300 text-sm font-semibold mb-6">M365 Latent Asset Activation</span>
+                <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                    Is Your Microsoft 365 <span class="text-rose-400">Copilot Blind?</span>
+                </h1>
+                <p class="text-lg text-slate-300 mb-8 max-w-xl">
+                    You've invested in AI, but it can't see your business-critical data. Stop trapping processes in disconnected SaaS silos. Transform Teams and SharePoint into a <strong>System of Engagement</strong>.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#audit" class="bg-accent-red text-center text-white px-8 py-4 rounded-lg font-bold hover:bg-rose-700 transition shadow-lg shadow-rose-900/20">Run a Free Latent Asset Audit</a>
+                    <a href="#solution" class="bg-white/10 text-center border border-white/20 backdrop-blur px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition">Explore The Bridge</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="placeholder-box bg-slate-800/50 border-slate-700 text-slate-400">
+                    <div>
+                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <p class="font-semibold text-lg">[IMAGE PLACEHOLDER: SPLIT VISION]</p>
+                        <p class="text-sm px-8 mt-2 italic">A "Split Vision" Graphic: Left side shows dark, fragmented data silos. Right side shows a glowing, unified M365 interface with Webparts360 at the core.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><path fill="#e11d48" d="M37.5,-64.8C48.1,-58,55.9,-46.1,62.8,-34C69.6,-21.9,75.4,-9.6,76,3.3C76.6,16.2,71.9,29.7,64.4,41.9C56.9,54.1,46.6,65,34.2,71.1C21.9,77.3,7.5,78.6,-6,76.5C-19.5,74.3,-32,68.7,-43.6,61C-55.2,53.4,-65.8,43.6,-71.4,31.7C-77,19.7,-77.6,5.6,-75.4,-8C-73.3,-21.7,-68.4,-34.9,-59.5,-45.5C-50.6,-56.1,-37.7,-64.1,-24.8,-69.5C-11.9,-75,0.9,-77.9,13.6,-75.6C26.3,-73.3,37.5,-64.8,37.5,-64.8Z" transform="translate(200 200)" /></svg>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>What if Microsoft 365 could handle your most mission-critical processes?</h1>
-            <h2>Enterprise-grade mobile workflows with AI-ready architecture, all within your secure Microsoft 365 environment</h2>
-            <p>Transform critical business processes within Teams while connecting directly to your LOB systems - no additional licenses required</p>
-            
-            <div class="questions">
-                <p><strong>The Question Most Have Stopped Asking: </strong> What if Microsoft 365 could handle our mission-critical business processes without having to purchase additional licenses?</p>
+    <!-- The Problem Section -->
+    <section id="problem" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">The "Silo Tax" is Killing Your Productivity</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">You are paying for Microsoft 365, yet your team is "commuting" to a dozen other apps to do their real work. This isn't just inefficient—it's expensive.</p>
             </div>
-
-            <div class="video-placeholder">
-                <div>📹</div>
-                <h4>Executive Strategy Video</h4>
-                <p>M365 investment protection and long-term strategy discussion</p>
-            </div>
-
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Explore Your Possibilities</a>
-                <a href="#success" class="btn btn-secondary">Watch Success Stories</a>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-2xl border border-slate-100 card-hover">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fragmentation</h3>
+                    <p class="text-slate-600">Critical data is scattered across separate logins, making a "Single Source of Truth" impossible.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl border border-slate-100 card-hover">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Security Risk</h3>
+                    <p class="text-slate-600">Every 3rd-party SaaS is a new vulnerability and a potential hole in your compliance strategy.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl border border-slate-100 card-hover">
+                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Blindness</h3>
+                    <p class="text-slate-600">If your project or HR process happens outside M365, your Copilot investment is fundamentally half-blind.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Opportunity Section -->
-    <section class="section">
-        <div class="container">
-            <h2>The Opportunity You Haven't Considered</h2>
-            
-            <div class="grid grid-2">
+    <!-- The Solution / The Bridge -->
+    <section id="solution" class="py-20 px-4 bg-slate-900 text-white rounded-3xl mx-4 lg:mx-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">The Webparts360 Bridge</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">We transform your latent M365 assets into a high-performance <strong>System of Engagement</strong>. Connect the 'Soft Work' of collaboration to the 'Hard Data' of transactions.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-12">
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-600 flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Collabortate (Teams)</h4>
+                            <p class="text-slate-400">Employees perform tasks and discuss decisions in the familiar UI of Microsoft Teams.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-600 flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Authorize (Webparts360)</h4>
+                            <p class="text-slate-400">Structured logic and governance ensure every approval is validated before it moves.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-rose-600 flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Commit (LOB Integration)</h4>
+                            <p class="text-slate-400">Data is seamlessly pushed to your back-end ERP or SQL systems. Integrity is never compromised.</p>
+                        </div>
+                    </div>
+                </div>
                 <div>
-                    <h3>Working Beyond Communication and Documents</h3>
-                    <p>Most teams use Microsoft 365 for chat and file sharing. But what if your existing investment could handle:</p>
-                    <ul style="margin-left: 2rem; margin-top: 1rem;">
-                        <li><strong>Critical approval workflows</strong> that connect to your ERP/CRM systems</li>
-                        <li><strong>Mobile business processes</strong> that work as well as desktop applications</li>
-                        <li><strong>Line-of-business data integration</strong> without leaving the Teams environment</li>
-                        <li><strong>AI-enhanced workflows</strong> that grow with your business needs</li>
-                    </ul>
-                </div>
-                
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>Process Comparison Video</h4>
-                    <p>Split-screen: traditional workflow vs. Teams-integrated process</p>
-                </div>
-            </div>
-
-            <div class="questions">
-                <h3>Questions Worth Exploring</h3>
-                <ul>
-                    <li>What if your approval processes could maintain enterprise security while feeling as simple as a chat?</li>
-                    <li>What if field teams could capture critical data as easily as taking a photo?</li>
-                    <li>What if your ERP data could flow seamlessly into daily Teams conversations?</li>
-                    <li>What if you could unlock your business data with AI without rebuilding everything?</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Story Section -->
-    <section id="success" class="section">
-        <div class="container">
-            <h2>Real Success: Malaysia's Leading Enterprise</h2>
-            
-            <div class="success-story">
-                <h3>Beyond Expectations</h3>
-                <p>Malaysia's leading beer manufacturer faced a challenge: their channel distribution business needed agile approval processes that could adapt to constantly evolving operations while maintaining strict audit compliance.</p>
-                
-                <div class="quote">
-                    "They've expanded and consolidated all approval processes for their channel distribution business within Microsoft 365 - proving enterprise workflows can thrive in Teams."
-                </div>
-                
-                <p><strong>What This Proves:</strong> Your Microsoft 365 platform can handle more than you imagined, without the risk of forced obsolescence.</p>
-            </div>
-
-            <div class="video-placeholder">
-                <div>📹</div>
-                <h4>Client Testimonial Video</h4>
-                <p>Business transformation highlights and M365 investment protection</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SiteSnap Section -->
-    <section id="solutions" class="section">
-        <div class="container">
-            <h2>Featured Solution: SiteSnap Mobile Integration</h2>
-            
-            <div class="grid grid-2">
-                <div>
-                    <h3>Enterprise Workflows in Your Pocket</h3>
-                    <p><strong>The Reality Check:</strong> What if you could work just as effectively from your phone using Teams?</p>
-                    
-                    <div class="feature-highlight">
-                        <div style="background: #0078d4; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📍</div>
-                        <div class="content">
-                            <h4>Geo-location project identification</h4>
-                            <p>App knows where you are</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-highlight">
-                        <div style="background: #0078d4; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📸</div>
-                        <div class="content">
-                            <h4>Photo-based progress reporting</h4>
-                            <p>Submit updates with images only</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-highlight">
-                        <div style="background: #0078d4; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">⚡</div>
-                        <div class="content">
-                            <h4>Instant Teams integration</h4>
-                            <p>Reports appear in project channels immediately</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-highlight">
-                        <div style="background: #0078d4; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">👤</div>
-                        <div class="content">
-                            <h4>Zero learning curve</h4>
-                            <p>Designed for field workers, not tech experts</p>
+                    <div class="placeholder-box bg-slate-800 border-slate-700 text-slate-500 min-h-[400px]">
+                        <div>
+                            <p class="font-bold text-xl mb-2 text-slate-300">SYSTEM OF ENGAGEMENT FLOW</p>
+                            <p class="text-sm px-10">[IMAGE PLACEHOLDER: 3-STEP DIAGRAM]</p>
+                            <p class="text-xs mt-4 italic max-w-xs mx-auto text-slate-500">A flowchart showing a Teams Message → Webparts360 Approval Engine → SAP/ERP Transaction Sync.</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>SiteSnap Demo Video</h4>
-                    <p>Mobile demonstration: field capture to Teams integration</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: #e3f2fd; border-radius: 10px;">
-                <h3>The Bigger Picture</h3>
-                <p>If complex project reporting works seamlessly on mobile, what other business processes could benefit from this approach?</p>
             </div>
         </div>
     </section>
 
-    <!-- Why So Few Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Why So Few Explore This Path</h2>
-            
-            <div class="grid grid-2">
-                <div>
-                    <h3>The Hidden Complexity Challenge</h3>
-                    <p>Our research reveals why most organizations haven't discovered these capabilities:</p>
-                    
-                    <div class="card">
-                        <h4>Integration Expertise Gap</h4>
-                        <p>True Microsoft 365 line-of-business integration requires specialized knowledge that few vendors possess. Most take the easier path of building external systems.</p>
-                    </div>
-
-                    <div class="card">
-                        <h4>The Memory of Past Pain</h4>
-                        <p>Microsoft's history of forced upgrades makes IT teams cautious about deep platform integration. The question becomes: "Will this investment survive Microsoft's next strategic shift?"</p>
-                    </div>
-
-                    <div class="card">
-                        <h4>The Comfortable Alternative</h4>
-                        <p>It's simpler to add another system than master the platform you already own. But this creates the exact system sprawl you're trying to avoid.</p>
-                    </div>
-                </div>
-                
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>IT Leadership Discussion</h4>
-                    <p>Integration challenges and vendor limitations from IT perspective</p>
-                </div>
+    <!-- Industries Section -->
+    <section id="industries" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Deep Expertise Across Business Critical Domains</h2>
             </div>
-
-            <div style="background: linear-gradient(135deg, #0078d4, #40b883); color: white; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
-                <h3>Our Specialized Approach</h3>
-                <p>We embrace this complexity because the results transform how enterprises operate. Our solutions work within Microsoft's existing framework, reducing exposure to platform changes while maximizing your current investment.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Gallery Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Video Gallery: See It in Action</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Real Demonstrations, Real Results</p>
-            
-            <div class="grid grid-2">
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>Enterprise Workflow Transformation</h4>
-                    <p>Watch how critical approval processes integrate seamlessly with Teams collaboration</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-lg mb-2">EPCC & Infrastructure</h4>
+                    <p class="text-sm text-slate-600">Manage multi-billion dollar project lifecycles within SharePoint with full ERP integration.</p>
                 </div>
-
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>Line-of-Business Data Integration</h4>
-                    <p>See how ERP/CRM data flows naturally into Teams conversations</p>
+                <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-lg mb-2">Financial Services</h4>
+                    <p class="text-sm text-slate-600">Secure, compliant approval workflows for CapEx, Procurement, and Risky Transactions.</p>
                 </div>
-
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>AI-Ready Architecture in Action</h4>
-                    <p>Discover how workflows become more intelligent without platform replacement</p>
-                </div>
-
-                <div class="video-placeholder">
-                    <div>📹</div>
-                    <h4>Mobile Enterprise Capabilities</h4>
-                    <p>Experience how complex business processes work effectively on mobile devices</p>
+                <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-lg mb-2">Human Resources</h4>
+                    <p class="text-sm text-slate-600">Turn 'Neck top' knowledge into 'Laptop' digital assets that fuel your corporate AI.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Use Cases That Unlock Potential</h2>
-            
-            <div class="grid grid-3">
-                <div class="card">
-                    <h3>Finance & Operations</h3>
-                    <ul>
-                        <li><strong>Approval workflows</strong> with automatic ERP posting and audit trails</li>
-                        <li><strong>Mobile expense submission</strong> with intelligent routing</li>
-                        <li><strong>Vendor onboarding</strong> with compliance verification</li>
-                        <li><strong>AI-enhanced financial analysis</strong> within familiar interfaces</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Project Management & Field Operations</h3>
-                    <ul>
-                        <li><strong>Mobile progress reporting</strong> with geo-location verification</li>
-                        <li><strong>Resource approval</strong> connecting to project management systems</li>
-                        <li><strong>Safety compliance</strong> with photo evidence and automated routing</li>
-                        <li><strong>Real-time project insights</strong> generated from field data</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Sales & Customer Operations</h3>
-                    <ul>
-                        <li><strong>CRM integration</strong> without leaving Teams environment</li>
-                        <li><strong>Customer onboarding</strong> with external data collection</li>
-                        <li><strong>Sales process automation</strong> with mobile capture capabilities</li>
-                        <li><strong>AI-powered customer insights</strong> from integrated data sources</li>
-                    </ul>
-                </div>
+    <!-- CTA / Audit Form -->
+    <section id="audit" class="py-20 px-4 bg-slate-100">
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 lg:p-12 shadow-2xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">Uncover Your Latent M365 Assets</h2>
+                <p class="text-slate-600">Book a 30-minute discovery session. We will map one of your fragmented processes to M365 and show you the "Silo Tax" you've been paying.</p>
             </div>
-
-            <div class="video-placeholder" style="margin-top: 2rem;">
-                <div>📹</div>
-                <h4>Industry-Specific Use Cases</h4>
-                <p>See how different industries benefit from M365 process integration</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Investment & Outcomes</h2>
-            
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>Practical Expectations</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><strong>Investment Range:</strong> RM30,000 - RM80,000</li>
-                        <li><strong>Implementation Timeline:</strong> 4-8 weeks for core infrastructure</li>
-                        <li><strong>Mobile capabilities:</strong> Included in platform deployment</li>
-                        <li><strong>Additional processes:</strong> Deploy in days, not months, after initial setup</li>
-                    </ul>
+            <form id="audit-form" class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-700">Full Name</label>
+                    <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition" required>
                 </div>
-
-                <div class="card">
-                    <h3>What's Included</h3>
-                    <ul>
-                        <li>Microsoft 365 tenant-wide infrastructure deployment</li>
-                        <li>Custom workflow development for your specific processes</li>
-                        <li>ERP/CRM integration configuration</li>
-                        <li>Mobile app development (SiteSnap-style or custom)</li>
-                        <li>AI-ready architecture for future enhancement</li>
-                        <li>Team training and knowledge transfer</li>
-                    </ul>
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-700">Work Email</label>
+                    <input type="email" placeholder="john@company.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition" required>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Questions Section -->
-    <section class="section">
-        <div class="container">
-            <h2>Questions to Consider</h2>
-            
-            <div class="questions">
-                <h3>Exploring Your Possibilities</h3>
-                <ul>
-                    <li><strong>Current workflow pain:</strong> Which business processes currently force you to leave Teams or SharePoint?</li>
-                    <li><strong>Mobile effectiveness:</strong> How often do your teams need to wait until they're back at their desks to complete critical tasks?</li>
-                    <li><strong>Data accessibility:</strong> What business insights are locked in systems that don't connect to your collaboration platform?</li>
-                    <li><strong>Future readiness:</strong> How prepared is your current setup for AI enhancement when you're ready?</li>
-                </ul>
-            </div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <h3>Starting the Conversation</h3>
-                <p>We don't push solutions - we explore possibilities. Every organization's Microsoft 365 environment has untapped potential.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2>Ready to Explore What's Possible?</h2>
-            <p>No Pressure, Just Possibilities</p>
-            <p>Your Microsoft 365 platform likely has capabilities you haven't discovered. We're here to explore what's achievable, not to sell what you don't need.</p>
-            
-            <div class="contact-options">
-                <div class="contact-card">
-                    <h3>Possibility Assessment</h3>
-                    <p>30-minute discussion about what's achievable with your current M365 investment</p>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Schedule Assessment</a>
+                <div class="md:col-span-2 space-y-2">
+                    <label class="text-sm font-semibold text-slate-700">What is your most fragmented business process?</label>
+                    <textarea rows="3" placeholder="e.g., Project Approvals, Procurement Sync, HR Onboarding..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-rose-500 focus:border-rose-500 outline-none transition"></textarea>
                 </div>
-
-                <div class="contact-card">
-                    <h3>Live Demonstration</h3>
-                    <p>See actual workflows, mobile integration, and ERP connectivity in a Teams environment</p>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Book Demo</a>
+                <div class="md:col-span-2">
+                    <button type="submit" class="w-full bg-accent-red text-white py-4 rounded-lg font-bold hover:bg-rose-700 transition transform active:scale-95">Schedule My 30-Minute Asset Audit</button>
                 </div>
-
-                <div class="contact-card">
-                    <h3>Technical Architecture Review</h3>
-                    <p>For IT teams - understand our approach to complex M365 integration</p>
-                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Technical Review</a>
-                </div>
-            </div>
-
-            <div class="video-placeholder" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">
-                <div>📹</div>
-                <h4>Consultation Process Video</h4>
-                <p>Learn about our engagement options and process</p>
+            </form>
+            <div id="success-message" class="hidden mt-6 text-center text-green-600 font-semibold p-4 bg-green-50 rounded-lg">
+                Thank you! We'll reach out shortly to schedule your audit.
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3>About Webparts360</h3>
-                    <p>Specialists in Microsoft 365 Enterprise Integration. We've helped Microsoft customers run business-critical solutions within SharePoint and Microsoft 365 for years.</p>
+    <footer class="bg-slate-900 text-white py-12 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <div>
+                <div class="flex items-center gap-2 justify-center md:justify-start mb-4">
+                    <div class="w-6 h-6 bg-accent-red rounded flex items-center justify-center text-white text-xs font-bold">W</div>
+                    <span class="text-lg font-bold tracking-tight">Webparts<span class="accent-red">360</span></span>
                 </div>
-                
-                <div>
-                    <h3>Our Community</h3>
-                    <p>Organizers of AMP KL - Malaysia's largest independent Microsoft technology conference. Sharing knowledge and building stronger technology communities.</p>
-                    <a href="https://ampkl.com" target="_blank" style="color: #ccc; text-decoration: none;">→ Visit ampkl.com</a>
-                </div>
-                
-                <div>
-                    <h3>Trust & Expertise</h3>
-                    <ul style="list-style: none;">
-                        <li>• Microsoft Partnership certifications</li>
-                        <li>• Years of enterprise M365 delivery</li>
-                        <li>• Line-of-business integration specialists</li>
-                        <li>• Mobile enterprise application expertise</li>
-                        <li>• Technology community leaders</li>
-                    </ul>
-                </div>
+                <p class="text-slate-500 text-sm max-w-xs">Building the bridge between Microsoft 365 and your business critical data.</p>
             </div>
-            
-            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #555;">
-                <p>&copy; 2025 Webparts360. All rights reserved. | Direct consultation with live demonstrations included</p>
+            <div class="text-slate-500 text-xs italic">
+                Human directed, AI enhanced content curated by Rico.
+                <div class="mt-2">&copy; 2026 Webparts360. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Form Handling
+        const form = document.getElementById('audit-form');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.classList.add('opacity-50', 'pointer-events-none');
+            // Mock API call delay
+            setTimeout(() => {
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+            }, 1000);
+        });
+
+        // Simple Smooth Scroll for Anchor Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -807,23 +275,11 @@
             });
         });
 
-        // Simple animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.card, .section').forEach(el => {
-            observer.observe(el);
+        // Mobile Menu Toggle (Simple placeholder logic)
+        const menuBtn = document.getElementById('mobile-menu-button');
+        menuBtn.addEventListener('click', () => {
+            const auditSection = document.getElementById('audit');
+            auditSection.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
