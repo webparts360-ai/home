@@ -267,6 +267,23 @@
       letter-spacing: 0.05em;
     }
 
+    .video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (9 ÷ 16 = 0.5625) */
+    border-radius: 8px;  /* optional: rounded corners */
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* optional: subtle shadow */
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     .navbar__cta {
       display: flex;
       align-items: center;
@@ -1626,8 +1643,15 @@
       <div class="section-header">
         <div class="section-label">Product Vision</div>
         <h2 class="section-title">How does it work?</h2>
-        <div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/KJ3G-j9EPf8?si=rPTkujjnafN3ZpPi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- Responsive YouTube Embed Wrapper -->
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/KJ3G-j9EPf8?si=rPTkujjnafN3ZpPi"
+            title="WebParts360 SmartBPM Demo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
     </div>
@@ -1691,7 +1715,7 @@
             <img src="images/W360Logo200.png" alt="WebParts360" height="80" style="display:block;">
           </div>
           <div class="footer__tagline">
-            Building enterprise-grade systems on Microsoft 365 since 2007.
+            Building enterprise-grade systems on Microsoft 365 since 2016.
           </div>
         </div>
 
