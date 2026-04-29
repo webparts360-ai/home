@@ -415,7 +415,7 @@
             <li>
               <span>1</span>
               <span>
-                <strong>Configure, don’t constantly recode</strong><br>
+                <strong>Configure, don't constantly recode</strong><br>
                 Use XML settings, HTML for UI, and T-SQL for transaction logic to configure forms, processes, and views instead of rebuilding each app from scratch.
               </span>
             </li>
@@ -439,19 +439,20 @@
             <a class="btn btn-secondary" href="#case-studies">See solutions built on this engine</a>
           </div>
         </div>
-    
+
+        <!-- FIX 1: Corrected malformed class attribute: class="class="hero-visual" → class="hero-visual" -->
         <div class="card">
-          <div class="class="hero-visual">
+          <div class="hero-visual">
             <img
               src="images/Webparts360-IDE.png"
               alt="Webparts360 UI"
               title="Webparts360 AppStudio"
-              />
+            />
           </div>
         </div>
       </div>
-    </section>    
-    
+    </section>
+
     <section class="partners">
       <div class="container">
         <div class="section-head">
@@ -459,41 +460,45 @@
             <div class="kicker">Trust and credibility</div>
             <h2>Built for discerning clients and delivery partners</h2>
           </div>
-          <p>Recognized with regional ICT awards and trusted by the Microsoft MVP community, we’ve supported conferences and enterprise projects across Malaysia, APAC, and global Microsoft 365 ecosystems.</p>
+          <p>Recognized with regional ICT awards and trusted by the Microsoft MVP community, we've supported conferences and enterprise projects across Malaysia, APAC, and global Microsoft 365 ecosystems.</p>
         </div>
         <div class="logo-row">
           <div class="logo-placeholder">
             <img
-            src="images/APICTA-Jakarta.JPG"
-            alt="APICTA award recognition"
-            title="Asia Pacific ICT Alliance - Best of Applications & Infrastructure Tools"  
-            style="max-width: 100%; max-height: 120px; object-fit: contain;"/>
+              src="images/APICTA-Jakarta.JPG"
+              alt="APICTA award recognition"
+              title="Asia Pacific ICT Alliance - Best of Applications & Infrastructure Tools"
+              style="max-width: 100%; max-height: 120px; object-fit: contain;"
+            />
             Asia Pacific ICT Award
           </div>
           <div class="logo-placeholder">
             <img
-            src="images/AMP2023.jpg"
-            alt="AOS, AMS, AMP"
-            title="Organizer of Azure, Microsoft 365, SharePoint conferences in KL since 2018"  
-            style="max-width: 100%; max-height: 120px; object-fit: contain;"/>
+              src="images/AMP2023.jpg"
+              alt="AOS, AMS, AMP"
+              title="Organizer of Azure, Microsoft 365, SharePoint conferences in KL since 2018"
+              style="max-width: 100%; max-height: 120px; object-fit: contain;"
+            />
             Conference Organizer
           </div>
           <div class="logo-placeholder">
             <img
-            src="images/SPC2009.jpg"
-            alt="Exhibition at Anaheim"
-            title="First Malaysia ISV Partner at SPC 2009, Las Vegas"  
-            style="max-width: 100%; max-height: 120px; object-fit: contain;"/>
+              src="images/SPC2009.jpg"
+              alt="Exhibition at Anaheim"
+              title="First Malaysia ISV Partner at SPC 2009, Las Vegas"
+              style="max-width: 100%; max-height: 120px; object-fit: contain;"
+            />
             SharePoint Conference
           </div>
           <div class="logo-placeholder">
             <img
-            src="images/SPC2012-Interview.JPG"
-            alt="Exhibition at Los Angeles"
-            title="SharePoint TV Interview 2012, Las Vegas"  
-            style="max-width: 100%; max-height: 120px; object-fit: contain;"/>
+              src="images/SPC2012-Interview.JPG"
+              alt="Exhibition at Los Angeles"
+              title="SharePoint TV Interview 2012, Las Vegas"
+              style="max-width: 100%; max-height: 120px; object-fit: contain;"
+            />
             SharePoint TV
-            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -543,28 +548,30 @@
               src="images/SmartBPM-Architect.png"
               alt="Teams Architecture"
               title="Teams Add-in Solution Architecture"
-              />
+            />
           </div>
         </div>
       </div>
     </section>
 
     <section id="smartbpm">
+      <!-- FIX 3: Restructured split-section — both columns now correctly sit inside .container.split-section -->
+      <!-- FIX 4: Added width/aspect-ratio to iframe so it fills its card responsively -->
       <div class="container split-section">
         <div class="card">
-            <iframe
-              src="https://www.youtube.com/embed/upWacfuP4Qs"
-              title="Webparts360 SmartBPM Explainer"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen">
-            </iframe>
-          </div>
-      </div>
+          <iframe
+            src="https://www.youtube.com/embed/upWacfuP4Qs"
+            title="Webparts360 SmartBPM Explainer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius-lg);"
+          ></iframe>
+        </div>
         <div>
           <div class="kicker">Featured product</div>
           <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.02; margin: 0;">SmartBPM brings your workflow engine closer to where work already happens</h2>
-          <p style="margin-top: var(--space-4); color: var(--color-text-muted);">SmartBPM is CRN Solutions’ productized workflow capability for organizations that need configurable approvals, process visibility, form-based transactions, and structured collaboration inside Microsoft 365.</p>
+          <p style="margin-top: var(--space-4); color: var(--color-text-muted);">SmartBPM is CRN Solutions' productized workflow capability for organizations that need configurable approvals, process visibility, form-based transactions, and structured collaboration inside Microsoft 365.</p>
           <ul class="check-list">
             <li><span>✓</span><span>Configurable forms, process steps, and business logic</span></li>
             <li><span>✓</span><span>Inbox, notifications, dashboards, and approval visibility</span></li>
@@ -608,12 +615,12 @@
           </article>
           <article class="case-card">
             <div class="case-media">
-                <img
+              <img
                 src="images/pexels-hedgefund.jpg"
                 alt="hedge fund reporting and portfolio solution"
-                title="Primebroker Margin Call Reportin"
+                title="Primebroker Margin Call Reporting"
               />
-              </div>
+            </div>
             <div class="case-body">
               <h3>Operational reporting for an Australian private hedge fund</h3>
               <p>Implemented prime broker margin call reporting and portfolio optimization workflows using SharePoint for a sophisticated financial operations context.</p>
@@ -626,11 +633,11 @@
           </article>
           <article class="case-card">
             <div class="case-media">
-                <img
+              <img
                 src="images/aircond.jpg"
                 alt="manufacturing R&D and ECN workflow solution"
                 title="manufacturing R&D and ECN workflow solution"
-                />
+              />
             </div>
             <div class="case-body">
               <h3>R&amp;D and ECN coordination for a global manufacturer</h3>
